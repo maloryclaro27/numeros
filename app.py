@@ -72,10 +72,12 @@ if st.button("Predecir"):
         img = img.resize((28, 28))  # Redimensionar a 28x28
 
         # Mostrar la imagen procesada
-        st.image(img, caption="Imagen procesada (28x28)", use_container_width=False)
+        #st.image(img, caption="Imagen procesada (28x28)", use_container_width=False)
 
         img_array = np.array(img)
         img_array = 255 - img_array  # Invertir colores (ajustar según entrenamiento)
+        # Mostrar la imagen procesada
+        st.image(mg_array, caption="Imagen procesada (28x28)", use_container_width=False)
         img_array = img_array.reshape((1, 28, 28, 1)) / 255.0  # Normalizar
 
         with st.spinner("🔍 Realizando predicciones..."):
@@ -121,3 +123,4 @@ if st.button("Predecir"):
 
     else:
         st.warning("⚠️ Por favor, dibuja un número antes de predecir.")
+
